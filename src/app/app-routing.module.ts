@@ -4,8 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'authorization',
     pathMatch: 'full'
+  },
+  {
+    path: 'authorization',
+    loadChildren: './authorization/authorization.module#AuthorizationModule'
+  },
+  {
+    path: 'payment',
+    loadChildren: './payment/payment.module#PaymentModule'
   },
   {
     path: 'home',
