@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../../session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authorization',
@@ -7,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorizationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {}
+
+  scanPos(){
+    this.sessionService.fetchPos().subscribe(this.chkIfScansComplited)
+  }
+
+  scanEmployee(){
+    this.sessionService.fetchEmployee().subscribe(this.chkIfScansComplited)
+  }
+
+  chkIfScansComplited = () => {
+    if (this.sessionService.getPosName() && this.sessionService.getEmployeeName()) {
+      this.router.navigate(['payment'])
+    }
+  }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../../session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -7,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+      if (!this.sessionService.getPosName() || !this.sessionService.getEmployeeName()) {
+        this.router.navigate(['authorization'])
+    }
+  }
 
 }

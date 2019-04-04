@@ -4,16 +4,21 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Auto
+      Authorization
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <br>
+    <span>You login as: {{sessionService.getEmployeeName()}}</span>
+    <br>
+    <br>
+    <span>You pos is: {{sessionService.getPosName()}}</span>
     <ion-grid >
       <ion-row justify-content-center>
-          <ion-col size="4" style="--ion-grid-column-margin: 50px">
-              <ion-button size="large" class="button__scan">
+          <ion-col size="4">
+              <ion-button size="large" class="button__scan" (click) = "scanPos()">
                 <ion-icon slot="icon-only" name="finger-print" class="icon__scan"></ion-icon>
               </ion-button>
               <div class="ion-text-center">Scan POS</div>
@@ -21,7 +26,7 @@
       </ion-row>
       <ion-row justify-content-center>
           <ion-col size="4">
-              <ion-button size="large" class="button__scan">
+              <ion-button size="large" class="button__scan" (click) = "scanEmployee()">
                   <ion-icon slot="icon-only" name="paw" class="icon__scan"></ion-icon>
                 </ion-button>
                 <div class="ion-text-center">Scan Employee</div>
