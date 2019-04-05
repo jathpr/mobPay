@@ -1,11 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      {{sessionService.getEmployeeName()}} from {{sessionService.getPosName()}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-card-header>
-        <ion-card-subtitle>PAY</ion-card-subtitle>
-        <ion-card-title>PAY PAY PAY</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>paaaaaaaaaaaaaaaaaaaaaaaaay</p>
-      </ion-card-content>
-    </ion-card>
+    <ion-grid fixed>
+
+      <ion-row >
+          <ion-col>
+              <!-- clearInput name size -->
+              <ion-input autofocus placeholder="0" inputmode="numeric" min=0 type="number" [(ngModel)]="totalPrice"></ion-input>
+          </ion-col>
+          <ion-col size="6">
+              <ion-button class="button__pay" color="success" (click) = "pay()">
+                  pay
+              </ion-button>
+          </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let price of prices">
+          <ion-col size="5">
+              <ion-button class="button__add" color="secondary" (click)="add(-price)">
+                  -{{price}}
+              </ion-button>
+          </ion-col>
+          <ion-col size="5" offset="2">
+              <ion-button class="button__add" color="secondary" (click)="add(price)">
+                  +{{price}}
+              </ion-button>
+          </ion-col>
+      </ion-row>
+      
+      <ion-row>
+          <ion-col size="12">
+              <ion-button class="button__clear" color="tertiary" (click)="clear()">
+                  clear
+              </ion-button>
+          </ion-col>
+      </ion-row>
+
+    </ion-grid>
 </ion-content>

@@ -1,3 +1,41 @@
-<p>
-  scan-customer works!
-</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">
+          {{sessionService.getEmployeeName()}} from {{sessionService.getPosName()}}
+        </ion-title>
+      </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-grid fixed>
+        <ion-row justify-content-center>
+            <ion-col size="12">
+                <ion-button disabled class="button__price" color="success">
+                    {{pricesService.getPrice()}}
+                </ion-button>
+                <!-- <div class="ion-text-center">Scan Customer</div> -->
+            </ion-col>
+        </ion-row>
+
+        <ion-row justify-content-center>
+            <ion-col size="4">
+                <ion-button size="large" class="button__scan" color="secondary" (click) = "scanCustomer()">
+                  <ion-icon slot="icon-only" name="paw" class="icon__scan"></ion-icon>
+                </ion-button>
+                <div class="ion-text-center">Scan Customer</div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12">
+                <ion-button class="button__back" color="tertiary" (click) = "back()">
+                  Back
+                </ion-button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+  

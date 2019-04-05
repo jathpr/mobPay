@@ -1,3 +1,70 @@
-<p>
-  approve works!
-</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">
+          {{sessionService.getEmployeeName()}} from {{sessionService.getPosName()}}
+        </ion-title>
+      </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-grid fixed>
+          <ion-row justify-content-center>
+              <ion-col size="12">
+                  <ion-button disabled class="button__price" color="success">
+                      {{pricesService.getPrice()}}
+                  </ion-button>
+              </ion-col>
+          </ion-row>
+
+          <ion-row justify-content-center>
+              <ion-col size="12">
+                  <div class="ion-text-center">Hello, {{pricesService.getCustomerName()}}!</div>
+              </ion-col>
+          </ion-row>
+  
+          <!-- [attr.disabled]="!pricesService.chkCash()" -->
+          <ng-template [ngIf]="isPaid">
+            <ion-row >
+              <ion-title class="ion-text-center button__pay">
+                Jobs Done
+              </ion-title>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                  <ion-button class="button__back" color="danger" (click) = "undoPay()">
+                    Unpay
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+          </ng-template>
+
+          <ng-template #payBlock [ngIf]="!isPaid">
+          <ion-row justify-content-center>
+              <ion-col size="12" *ngIf="pricesService.chkCash(); else elseBlock">
+                  <ion-button size="large" class="button__pay" color="secondary" (click) = "pay()" >
+                    Pay {{pricesService.getPrice()}}
+                  </ion-button>
+              </ion-col>
+              <ng-template #elseBlock>
+                <ion-col  size="12">
+                    <ion-button disabled size="large" class="button__pay" color="danger" >
+                        No money No honey
+                      </ion-button>
+                </ion-col>
+              </ng-template>
+          </ion-row>
+        </ng-template>
+          
+          <ion-row>
+            <ion-col size="12">
+              <ion-button class="button__back" color="tertiary" (click) = "back()">
+                Back
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-content>
+  

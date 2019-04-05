@@ -1,0 +1,25 @@
+ion-grid {
+    --ion-grid-width: 400px;
+    background-color: var(--ion-color-warning);
+}
+
+ion-input {
+    border: 2px solid var(--ion-color-dark);
+    --background: var(--ion-color-light);
+}
+
+.button__pay {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.button__clear {
+    width: 100%;
+    margin: 0;
+}
+
+.button__add {
+    width: 100%;
+    margin: 0;
+}
