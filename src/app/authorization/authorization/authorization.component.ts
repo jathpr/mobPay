@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../session.service';
 import { Router } from '@angular/router';
+import { NFC, Ndef } from '@ionic-native/nfc/ngx';
 
 @Component({
   selector: 'app-authorization',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthorizationComponent implements OnInit {
 
-  constructor(private sessionService: SessionService, private router: Router) { }
+  constructor(private nfc: NFC, private ndef: Ndef, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {}
 

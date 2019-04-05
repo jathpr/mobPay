@@ -1,6 +1,8 @@
 {
   "name": "mobPay",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "49894276"
 }
