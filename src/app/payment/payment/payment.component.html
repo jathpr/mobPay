@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="this.sessionService.getPosName() && this.sessionService.getEmployeeName()">
     <ion-grid fixed>
 
       <ion-row >
@@ -24,7 +24,7 @@
           </ion-col>
       </ion-row>
 
-      <ion-row *ngFor="let price of prices">
+      <ion-row *ngFor="let price of this.pricesService.getPrices()">
           <ion-col size="5">
               <ion-button class="button__add" color="secondary" (click)="add(-price)">
                   -{{price}}

@@ -19,9 +19,9 @@ export class SessionService {
   private possUrl = 'api/poss';
 
   constructor(private http: HttpClient) { 
-    this.employee = {id: 0, name: "Developer"}
-    this.pos.id = 0
-    this.pos.name = "Place"
+    // this.employee = {id: 0, name: "Developer"}
+    // this.pos.id = 0
+    // this.pos.name = "Place"
   }
 
   getPosName(): string {

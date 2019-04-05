@@ -17,8 +17,10 @@ export class ApproveComponent implements OnInit {
   ngOnInit() {}
 
   back() {
-    if (this.isPaid)
+    if (this.isPaid) {
+      this.pricesService.setPrice(null)
       this.router.navigate(['payment'])
+    }
     else
       this.router.navigate(['payment/scan_customer'])
   }

@@ -18,11 +18,12 @@ const httpOptions = {
 })
 export class PricesService {
   constructor(private http: HttpClient, private sessionService: SessionService) {
-    this.customer.name = "Qa"
-    this.customer.credits = 2000
+    // this.customer.name = "Qa"
+    // this.customer.credits = 2000
+    // this.currentPrice = 777
   }
 
-  private currentPrice = 777
+  private currentPrice
   private DEFAULT_PRICE_LIST = [100,300,500,5000]
   private customer = new Customer()
   private customerUrl = 'api/customers/6';

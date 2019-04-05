@@ -11,20 +11,15 @@ import { Router } from '@angular/router';
 
 export class PaymentComponent implements OnInit {
 
-  constructor(private sessionService: SessionService, private pricesService: PricesService, private router: Router) { }
+  constructor(private sessionService: SessionService, private pricesService: PricesService, private router: Router) { 
+ 
+  }
 
   prices: number[]
   totalPrice: number;
 
-  ngOnInit() {
-      if (!this.sessionService.getPosName() || !this.sessionService.getEmployeeName()) {
-        this.router.navigate(['authorization'])
-      } else {
-        this.prices = this.pricesService.getPrices()
-        if (this.pricesService.getPrice()) this.totalPrice = this.pricesService.getPrice()
-      }
-  }
-
+  ngOnInit() {}
+ 
   add(price: number) {
     if (!this.totalPrice) this.totalPrice = 0;
     this.totalPrice += price;
