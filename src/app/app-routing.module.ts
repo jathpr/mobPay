@@ -14,14 +14,6 @@ const routes: Routes = [
   {
     path: 'payment',
     loadChildren: './payment/payment.module#PaymentModule'
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
   }
 ];
 

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })
+
 export class PaymentComponent implements OnInit {
 
   constructor(private sessionService: SessionService, private router: Router) { }

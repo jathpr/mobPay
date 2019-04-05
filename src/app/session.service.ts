@@ -17,14 +17,18 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SessionService {
-  private employee = new Employee()
+  private employee = new Employee() 
   private customer = new Customer()
   private pos = new Pos()
   private employeesUrl = 'api/employees';
   private customerUrl = 'api/customers/6';
   private possUrl = 'api/poss';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.employee = {id: 0, name: "develop"}
+    this.pos.id = 0
+    this.pos.name = "develop"
+  }
 
   getPosName(): string {
     return this.pos.name

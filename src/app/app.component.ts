@@ -20,17 +20,6 @@ export class AppComponent {
       url: '/payment',
       icon: 'beer'
     }
-    // ,
-    // {
-    //   title: 'Home',
-    //   url: '/home',
-    //   icon: 'home'
-    // },
-    // {
-    //   title: 'List',
-    //   url: '/list',
-    //   icon: 'list'
-    // }
   ];
 
   constructor(
